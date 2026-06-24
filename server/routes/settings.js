@@ -23,15 +23,15 @@ router.get('/', async (req, res) => {
  */
 router.put('/', async (req, res) => {
     try {
-        const updates = req.body;
-        const updatedSettings = await settings.update(updates);
+        //const updates = req.body;
+        //const updatedSettings = await settings.update(updates);
 
         // If sync interval changed, restart the server-side sync timer
-        if (updates.epgRefreshInterval !== undefined) {
-            syncService.restartSyncTimer().catch(console.error);
-        }
+        //if (updates.epgRefreshInterval !== undefined) {
+        //    syncService.restartSyncTimer().catch(console.error);
+        //}
 
-        res.json(updatedSettings);
+        //res.json(updatedSettings);
     } catch (err) {
         console.error('Error updating settings:', err);
         res.status(500).json({ error: err.message });
@@ -44,8 +44,8 @@ router.put('/', async (req, res) => {
  */
 router.delete('/', async (req, res) => {
     try {
-        const defaultSettings = await settings.reset();
-        res.json(defaultSettings);
+        //const defaultSettings = await settings.reset();
+        //res.json(defaultSettings);
     } catch (err) {
         console.error('Error resetting settings:', err);
         res.status(500).json({ error: err.message });
