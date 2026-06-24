@@ -56,26 +56,26 @@ async function loadDb() {
 // Default settings
 function getDefaultSettings() {
   return {
-    arrowKeysChangeChannel: true,
-    overlayDuration: 5,
-    defaultVolume: 80,
-    rememberVolume: true,
-    lastVolume: 80,
+    arrowKeysChangeChannel: false,
+    overlayDuration: 3,
+    defaultVolume: 100,
+    rememberVolume: false,
+    lastVolume: 100,
     autoPlayNextEpisode: false,
-    forceProxy: false,
+    forceProxy: true,
     forceTranscode: false, // Force Audio Transcode
-    forceVideoTranscode: false, // Force Video Transcode
-    forceRemux: false,
-    autoTranscode: true,
-    streamFormat: 'm3u8',
-    epgRefreshInterval: '24',
+    forceVideoTranscode: true, // Force Video Transcode
+    forceRemux: true,
+    autoTranscode: false,
+    streamFormat: 'ts',
+    epgRefreshInterval: '1',
     // User-Agent settings
-    userAgentPreset: 'chrome',    // chrome | vlc | tivimate | custom
+    userAgentPreset: 'vlc',    // chrome | vlc | tivimate | custom
     userAgentCustom: '',          // Custom UA string when preset is 'custom'
     // Transcoding settings
-    hwEncoder: 'auto',            // auto | nvenc | amf | qsv | vaapi | software
+    hwEncoder: 'nvenc',            // auto | nvenc | amf | qsv | vaapi | software
     maxResolution: '1080p',       // 4k | 1080p | 720p | 480p
-    quality: 'medium',            // high | medium | low
+    quality: 'low',            // high | medium | low
     audioMixPreset: 'auto',       // auto | itu | night | cinematic | passthrough
     // Probe cache settings  
     probeCacheTTL: 300,           // 5 minutes for URL probe cache
