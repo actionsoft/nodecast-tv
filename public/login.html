@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - NodeCast TV</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <title>FamiliPelis TV</title>
+    <link rel="icon" type="image/png" href="https://www.archivosexclusivos.com.ar/familipelis/FamiliPelis_logo.png">
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -166,13 +166,7 @@
     <div class="login-container">
         <div class="login-box">
             <div class="login-logo">
-                <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 187.63 210.6"
-                    fill="currentColor">
-                    <path
-                        d="M169.71,87.87c-4.77,0-9.1,1.88-12.31,4.92L35.3,22.3c.35-1.4.56-2.86.56-4.37C35.86,8.03,27.83,0,17.93,0S0,8.03,0,17.93c0,8.44,5.84,15.5,13.69,17.4v140c-7.71,2.01-13.41,8.99-13.41,17.33,0,9.9,8.03,17.93,17.93,17.93s17.93-8.03,17.93-17.93c0-1.56-.22-3.07-.6-4.51l121.21-69.98c3.26,3.42,7.86,5.55,12.95,5.55,9.9,0,17.93-8.03,17.93-17.93s-8.03-17.93-17.93-17.93ZM152.78,99.92c-.14.41-.27.83-.38,1.25h-51.47l-44.18-24.72L30.4,30.8c.33-.32.64-.65.94-.99l121.45,70.12ZM22.17,175.2V35.33c.23-.05.45-.11.67-.17l26.35,45.65-.34,50.04-25.74,44.59c-.31-.09-.63-.17-.95-.24ZM31.52,180.69c-.27-.3-.55-.6-.84-.89l25.48-44.13,44.64-25.78h51.47c.07.32.15.63.24.94L31.52,180.69Z" />
-                </svg>
-                <h1>nodecast-tv</h1>
-                <p id="login-subtitle">Sign in to continue</p>
+                <img type="image/png" src="https://www.archivosexclusivos.com.ar/familipelis/FamiliPelis_logo_text.png" height=35px>
             </div>
 
             <div class="error-message" id="error-message"></div>
@@ -182,55 +176,23 @@
 
             <form id="login-form">
                 <div class="form-group">
-                    <label for="username">Username</label>
+                    <label for="username">Usuario</label>
                     <input type="text" id="username" name="username" required autocomplete="username"
-                        placeholder="Enter your username">
+                        placeholder="Ingresa tu usuario">
                 </div>
 
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" required autocomplete="current-password"
-                        minlength="6" placeholder="Enter your password">
+                        minlength="6" placeholder="Ingresa tu password">
                 </div>
 
-                <button type="submit" class="btn-login" id="submit-btn">Sign In</button>
+                <button type="submit" class="btn-login" id="submit-btn">Ingresar</button>
             </form>
-
-            <div class="sso-divider" style="text-align: center; margin: 20px 0; position: relative;">
-                <span
-                    style="background: var(--color-bg-secondary); padding: 0 10px; color: var(--color-text-secondary); font-size: 14px; position: relative; z-index: 1;">OR</span>
-                <div
-                    style="position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: var(--color-border); z-index: 0;">
-                </div>
-            </div>
-
-            <button id="btn-sso-login" class="btn-login"
-                style="background: transparent; border: 1px solid var(--color-border); color: var(--color-text-primary); display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.2s;">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                    style="width: 20px; height: 20px;">
-                    <path
-                        d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
-                </svg>
-                Sign in with SSO
-            </button>
-
-            <style>
-                #btn-sso-login:hover {
-                    background: var(--color-bg-tertiary) !important;
-                    border-color: var(--color-accent) !important;
-                    color: var(--color-accent) !important;
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-                }
-            </style>
         </div>
     </div>
 
     <script>
-        // Start SSO Login
-        document.getElementById('btn-sso-login').addEventListener('click', () => {
-            window.location.href = '/api/auth/oidc/login';
-        });
-
         // Check for URL Error params
         const urlParams = new URLSearchParams(window.location.search);
         const error = urlParams.get('error');
