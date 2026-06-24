@@ -960,12 +960,12 @@ class VideoPlayer {
                 const statusText = this.settings.upscaleEnabled ? 'Upscaling' : 'Transcoding (Video)';
                 const statusMode = this.settings.upscaleEnabled ? 'upscaling' : 'transcoding';
                 console.log(`[Player] ${statusText} enabled. Starting session (encode)...`);
-                this.updateTranscodeStatus(statusMode, statusText);
+                //this.updateTranscodeStatus(statusMode, statusText);
                 const playlistUrl = await this.startTranscodeSession(streamUrl, { videoMode: 'encode' });
                 this.currentUrl = playlistUrl;
 
                 // Load HLS
-                this.updateNowPlaying(channel, 'Transcoding (Video)');
+                this.updateNowPlaying(channel);
                 // ... (rest is same logic flow, simplified by just falling through to playHls call if I refactored)
                 // But for minimize drift, I'll copy the block logic for HLS playback init
                 // Actually, I can just fall through if I set looksLikeHls = true?
@@ -1002,7 +1002,7 @@ class VideoPlayer {
             // CHECK: Force Audio Transcode (Copy Video) - legacy forceTranscode setting
             if (this.settings.forceTranscode) {
                 console.log('[Player] Force Audio Transcode enabled. Starting session (copy)...');
-                this.updateTranscodeStatus('transcoding', 'Transcoding (Audio)');
+                this.updateTranscodeStatus('transcoding');
 
                 // Probe to get video codec for HEVC tag handling
                 let videoCodec = 'unknown';
