@@ -4,7 +4,7 @@
 
 class App {
     constructor() {
-        this.currentPage = 'home';
+        this.currentPage = 'live';
         this.pages = {};
         this.currentUser = null;
 
@@ -143,7 +143,7 @@ class App {
 
         // Handle browser back/forward buttons
         window.addEventListener('popstate', (e) => {
-            const page = e.state?.page || 'home';
+            const page = e.state?.page || 'live';
             this.navigateTo(page, false); // false = don't add to history
         });
 
@@ -158,7 +158,7 @@ class App {
 
         // Navigate to the page from URL hash, or default to home
         const hash = window.location.hash.slice(1); // Remove #
-        const initialPage = hash && this.pages[hash] ? hash : 'home';
+        const initialPage = hash && this.pages[hash] ? hash : 'live';
         this.navigateTo(initialPage, true); // true = replace history (don't add)
 
         console.log('NodeCast TV initialized');
@@ -217,7 +217,7 @@ class App {
             <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon">
                 <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
             </svg></span>
-            <span>Logout</span>
+            <span>Salir</span>
         `;
 
         logoutLink.addEventListener('click', async (e) => {
