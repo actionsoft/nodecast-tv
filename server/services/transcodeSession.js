@@ -425,7 +425,7 @@ class TranscodeSession extends EventEmitter {
      */
     addNvencEncoderArgs(args, height, qp) {
         // Video filter for scaling on GPU
-        args.push('-vf', this.buildScaleFilter('nvenc', height));
+        //args.push('-vf', this.buildScaleFilter('nvenc', height));
 
         // NVENC encoder with quality settings
         // Using portable options that work across FFmpeg builds
